@@ -1,8 +1,9 @@
 AspDC
 =====
 
-Aspartate decarboxylase
-------------------------
+| Name                      |PDB|
+|L-Aspartate-𝛼-decarboxylase|1UHE|
+
 
 - Model 0 contains 27 atoms
 - Model 1 contains 76 atoms
