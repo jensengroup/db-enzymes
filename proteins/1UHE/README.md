@@ -20,3 +20,10 @@ Rong-Zhen Liao, Jian-Guo Yu, and Fahmi Himo
 **Quantum Chemical Modeling of Enzymatic Reactions: The Case of Decarboxylation**  
 *Journal of Chemical Theory and Computation* **2011** 7 (5), 1494-1501  
 doi: 10.1021/ct200031t
+
+Computational Details
+----------------------
+
+**B3LYP** in **Gaussian 03**  
+6-31G(*d,p*)  
+6-311+G(*2d,2p*)
