@@ -11,6 +11,10 @@ HKMT
 - Model 2 contains 72 atoms
 - Model 3 contains 132 atoms
 
+Experimental Data
+-----------------
+Experimental barrier is 20.9 kcal/mol.
+
 Reference
 ----------
 Polina Georgieva and Fahmi Himo  
