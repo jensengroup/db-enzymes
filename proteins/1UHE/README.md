@@ -26,4 +26,5 @@ Computational Details
 
 **B3LYP** in **Gaussian 03**  
 6-31G(*d,p*)  
-6-311+G(*2d,2p*)
+6-311+G(*2d,2p*)  
+CPCM
