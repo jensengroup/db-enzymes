@@ -24,7 +24,6 @@ doi: 10.1021/ct200031t
 Computational Details
 ----------------------
 
-**B3LYP** in **Gaussian 03**  
-6-31G(*d,p*)  
-6-311+G(*2d,2p*)  
-CPCM
+B3LYP/6-31G(*d,p*)/CPCM in **Gaussian 03**  
+B3LYP/6-311+G(*2d,2p*)/CPCM in **Gaussian 03**  
+
