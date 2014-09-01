@@ -21,7 +21,7 @@ Computational Details
 Geometry Optimizations (for C, H, O, N and P):  
 B3LYP/6-31G(*d,p*)/CPCM in **Gaussian 03**  
 
-Geometry optimization (for Zn):
+Geometry optimization (for Zn):  
 B3LYP/LANL2DZ
 
 Single-point Calculations:  
