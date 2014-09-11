@@ -11,6 +11,10 @@ HKMT
 - Model 2 contains 72 atoms
 - Model 3 contains 132 atoms
 
+Charge
+------
+Total charge on system is +1
+
 Experimental Data
 -----------------
 Experimental barrier is 20.9 kcal/mol.
