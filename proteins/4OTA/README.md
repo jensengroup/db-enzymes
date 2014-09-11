@@ -9,6 +9,10 @@
 - Model 0 contains 77 atoms
 - Model 1 contains 177 atoms
 
+Charge
+------
+Total charge on system is +1
+
 Reference
 ----------
 Robin Sevastik and Fahmi Himo 
