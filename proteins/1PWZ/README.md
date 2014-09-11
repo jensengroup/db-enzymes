@@ -10,6 +10,10 @@ Hhec
 - Model 1 contains 112 atoms  
 - Model 2 contains 161 atoms  
 
+Charge
+------
+Total charge on system is 0
+
 Reference
 ----------
 Kathrin H. Hopmann and Fahmi Himo  
