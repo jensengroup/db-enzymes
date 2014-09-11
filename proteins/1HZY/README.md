@@ -7,6 +7,9 @@ PTE
 
 
 - Model contains atoms 82 atoms
+
+Charge
+------
 - Total charge on system is 0
 
 Reference
