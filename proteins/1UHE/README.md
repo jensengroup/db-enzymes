@@ -12,8 +12,10 @@ AspDC
 - Model 3 contains 135 atoms
 - Model 4.1 contains 166 atoms
 - Model 4.2 contains 189 atoms
-- Model 5 contains 220 atoms
+- Model 5 contains 220 atoms  
 
+Charge
+-------
 - Total charge on system is 0
 
 Reference
