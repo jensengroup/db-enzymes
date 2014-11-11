@@ -6,11 +6,11 @@ PTE
 | Phosphotriesterase | 1HZY |
 
 
-- Model contains atoms 82 atoms
+- Model contains 82 atoms
 
 Charge
 ------
-- Total charge on system is 0
+- Total charge on system is 1
 
 Reference
 ----------
