@@ -10,7 +10,7 @@ PTE
 
 Charge
 ------
-- Total charge on system is 1
+- Total charge on system is +1
 
 Reference
 ----------
