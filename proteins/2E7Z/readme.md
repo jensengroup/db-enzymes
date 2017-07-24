@@ -24,8 +24,14 @@ doi: 10.1073/pnas.1014060108
 Computational Details
 ----------------------
 
-Geometry Optimizations:  
-B3LYP/6-311+G(*2d,2p*)/CPCM in **Gaussian 03**  
+Geometry Optimizations for (C, N, O, and H):  
+B3LYP/6-31G(*d,p*)/CPCM in **Gaussian 03**  
+
+Geometry Optimization for S:
+B3LYP/6-311+G(*d*)
+
+Geometry Optimization for W:
+B3LYP/LANL2TZ(f) (32)
 
 Single-point Calculations:  
 B3LYP/6-311+G(*2d,2p*)/CPCM in **Gaussian 03**

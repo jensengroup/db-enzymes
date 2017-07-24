@@ -24,8 +24,14 @@ doi: 10.1021/jp910992f
 Computational Details
 ----------------------
 
-Geometry Optimizations:  
-B3LYP/6-311+G(*2d,2p*)/CPCM in **Gaussian 03**  
+Geometry Optimizations for all atoms not specified:  
+B3LYP/6-311+G(*d,p*)/CPCM in **Gaussian 03**  
+
+Geometry Optimization (Phosphorus and five surrounding oxygen atoms):
+B3LYP/6-311+G(*2d*)
+
+Geometry Optimization (Zn):
+B3LYP/LANL2DZ
 
 Single-point Calculations:  
 B3LYP/6-311+G(*2d,2p*)/CPCM in **Gaussian 03**
