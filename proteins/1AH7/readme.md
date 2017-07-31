@@ -12,7 +12,8 @@ PLC
 
 Charge
 ------
-Total charge on system is +2
+- Total charge on ModelA is +2
+- Total charge on ModelB is +1
 
 Reference
 ----------
