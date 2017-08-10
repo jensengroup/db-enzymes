@@ -3,7 +3,7 @@ AMDase
 
 | Name                                                                          | PDB  |
 | :---------------------------------------------------------------------------- | ---- |
-| ω-Transaminases from Chromobacterium violaceum                                | 3IP8 |
+| ω-Transaminases from Chromobacterium violaceum                                | 4A6T |
 
 
 - The model contains 197 atoms 

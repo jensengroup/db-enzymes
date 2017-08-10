@@ -11,7 +11,7 @@ PAD
 
 Charge
 ------
-Total charge on system is 0
+Total charge on system is -1
 
 Reference
 ----------
