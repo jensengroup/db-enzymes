@@ -93,7 +93,13 @@ def md2json():
 
 def get_charge(filename):
 
-    out = shell('grep "Total charge on system is" '+filename, shell=True)
+    cmd = 'grep "Total charge on system is" '+filename
+    out = shell(cmd, shell=True)
+
+    if out == "":
+        print "no charge"
+        print cmd
+
     charge = out.split()
     charge = charge[-1]
     charge = int(charge)
@@ -112,6 +118,9 @@ def get_model_files(foldername, modelname):
 
 def get_protein(pdbid, foldername="./proteins/"):
 
+    if foldername[-1] != "/":
+        foldername += "/"
+
     foldername += pdbid
 
     db = {}
@@ -121,6 +130,7 @@ def get_protein(pdbid, foldername="./proteins/"):
 
     models = get_models(foldername)
     models.sort()
+    db['models_keys'] = models
 
     db['models'] = {}
     for model in models:
@@ -133,7 +143,7 @@ def get_protein(pdbid, foldername="./proteins/"):
         atoms_r, coordinates_r = get_coordinates_xyz(foldername + "/" + model + "_r.xyz")
         atoms_p, coordinates_p = get_coordinates_xyz(foldername + "/" + model + "_p.xyz")
 
-        if (atoms_r != atoms_p).all():
+        if not list(atoms_r) == list(atoms_p):
             print "atoms not even", foldername, model, "r,p"
             quit()
 
@@ -155,9 +165,10 @@ def get_all_pdbs(foldername):
 
 def main():
 
-    # print get_all_pdbs('proteins')
+    enzymes = get_all_pdbs('proteins')
 
-    print get_protein('1UHE')
+    for enzyme in enzymes:
+        edb = get_protein(enzyme)
 
     return
 
