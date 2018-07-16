@@ -139,19 +139,13 @@ def get_protein(pdbid, foldername="./proteins/"):
         header = csvfile.next()
         header = [x.lower().strip() for x in header.split(",")]
 
-        # get r and p
-        atoms_r, coordinates_r = get_coordinates_xyz(foldername + "/" + model + "_r.xyz")
-        atoms_p, coordinates_p = get_coordinates_xyz(foldername + "/" + model + "_p.xyz")
-
-        if not list(atoms_r) == list(atoms_p):
-            print "atoms not even", foldername, model, "r,p"
-            quit()
-
         db['models'][model] = {}
-        db['models'][model]['atoms'] = atoms_r
-        db['models'][model]['xyz'] = {}
-        db['models'][model]['xyz']['r'] = coordinates_r
-        db['models'][model]['xyz']['p'] = coordinates_p
+        for head in header[1:]:
+            atoms, coordinates = get_coordinates_xyz(foldername + "/" + model + "_"+head+".xyz")
+            db['models'][model][head] = {}
+            db['models'][model][head]['atoms'] = atoms
+            db['models'][model][head]['xyz'] = coordinates
+
 
     return db
 
