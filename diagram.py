@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as lines
 from itertools import izip, count
 
-def look_nice(ax, xaxis, xticks):
+def look_nice(ax, xticks):
 
     # ax.axes.get_xaxis().set_visible(False)
     ax.spines['top'].set_visible(False)
@@ -15,6 +15,7 @@ def look_nice(ax, xaxis, xticks):
 
     ax.yaxis.grid(True, zorder=0)
 
+    xaxis = list(range(len(xticks)))
     ax.set_xticks(xaxis)
     ax.set_xticklabels(xticks)
 
@@ -49,7 +50,7 @@ def add_energy_path(ax, energies, color=None, label=None, epsilon=0.1):
     return
 
 
-if __name__ == "__main__":
+def test():
 
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -71,6 +72,56 @@ if __name__ == "__main__":
         leg.get_frame().set_facecolor('none')
 
     filename = "testing"
+
+    plt.savefig(filename+'.png', bbox_inches='tight')
+
+    return
+
+
+def read_csv(filename):
+
+    with open(filename, 'r') as f:
+
+        header = next(f)
+        header = header.split(",")
+        path = header[1:]
+
+        path_names = []
+        path_energies = []
+
+        for line in f:
+            line = line.strip()
+            line = line.split(",")
+            name = line[0]
+            values = line[1:]
+            values = [float(val) for val in values]
+            path_names.append(name)
+            path_energies.append(values)
+
+    return path, path_names, path_energies
+
+if __name__ == "__main__":
+
+    import sys
+    args = sys.argv[1:]
+    filename = args[0]
+
+    path, path_names, path_energies = read_csv(filename)
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    for name, energies in zip(path_names, path_energies):
+        add_energy_path(ax, energies, label=name)
+
+    look_nice(ax, path)
+
+    if True:
+        leg = ax.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+        leg.get_frame().set_linewidth(0.0)
+        leg.get_frame().set_facecolor('none')
+
+    filename = filename.replace(".csv", "")
 
     plt.savefig(filename+'.png', bbox_inches='tight')
 
