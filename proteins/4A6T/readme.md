@@ -27,3 +27,11 @@ B3LYP/6-31G(*d,p*)/CPCM in **Gaussian 09**
 
 Single-point Calculations:  
 B3LYP/6-311+G(*2d,2p*)/CPCM in **Gaussian 09**
+
+Notes
+-----
+
+There are four alterantive paths.
+TS1', TS2', TS4', TS6'.
+Paths not included in `model_0.csv`, but can be found in the SI.
+
