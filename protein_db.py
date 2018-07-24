@@ -164,6 +164,9 @@ def main():
     for enzyme in enzymes:
         edb = get_protein(enzyme)
 
+        # TODO Generate energy diagram
+
+
     return
 
 
