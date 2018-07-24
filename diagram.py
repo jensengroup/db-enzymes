@@ -21,12 +21,15 @@ def look_nice(ax, xticks):
 
     ax.margins(0.1)
 
+    ax.xaxis.set_ticks_position('none') 
+    ax.yaxis.set_ticks_position('none') 
+
     return
 
 
-def add_line(ax, x1, x2, y1, y2, color='g', ls='--'):
+def add_line(ax, x1, x2, y1, y2, color='g', ls='-'):
 
-    l = lines.Line2D([x1, x2], [y1, y2], ls=ls, color=color)
+    l = lines.Line2D([x1, x2], [y1, y2], ls=ls, color=color, linewidth=1)
     ax.add_line(l)
 
     return
@@ -38,11 +41,11 @@ def add_energy_path(ax, energies, color=None, label=None, epsilon=0.1):
     ys = np.array([0, 0])
 
     # plot the first energy level and set color
-    p = plt.plot(xs, ys+energies[0], color=color, label=label)
+    p = plt.plot(xs, ys+energies[0], color=color, label=label, linewidth=2)
     if not color: color = p[0].get_color()
 
     for i, energy in enumerate(energies[1:]):
-        plt.plot(xs+i+1, ys+energy, color=color)
+        plt.plot(xs+i+1, ys+energy, color=color, linewidth=2)
 
     for i, energy_1, energy_2 in izip(count(), energies[:-1], energies[1:]):
         add_line(ax, i+epsilon, i+1-epsilon, energy_1, energy_2, color=color)
@@ -83,6 +86,7 @@ def read_csv(filename):
     with open(filename, 'r') as f:
 
         header = next(f)
+        header = header.strip()
         header = header.split(",")
         path = header[1:]
 
@@ -117,9 +121,10 @@ if __name__ == "__main__":
     look_nice(ax, path)
 
     if True:
-        leg = ax.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+        # leg = ax.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+        leg = ax.legend(loc="best", borderaxespad=0., framealpha=1.0, fancybox=False, borderpad=1)
         leg.get_frame().set_linewidth(0.0)
-        leg.get_frame().set_facecolor('none')
+        leg.get_frame().set_facecolor('#ffffff')
 
     filename = filename.replace(".csv", "")
 
