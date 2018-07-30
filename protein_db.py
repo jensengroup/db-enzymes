@@ -93,6 +93,9 @@ def md2json():
 
 def get_charge(filename):
 
+    if not os.path.isfile(filename):
+        filename = filename.replace("README", "readme")
+
     cmd = 'grep "Total charge on system is" '+filename
     out = shell(cmd, shell=True)
 
@@ -123,6 +126,9 @@ def get_protein(pdbid, foldername="./proteins/"):
 
     foldername += pdbid
 
+    if not os.path.isdir(foldername):
+        quit("not exists: " + foldername)
+
     db = {}
 
     charge = get_charge(foldername + "/README.md")
@@ -140,11 +146,34 @@ def get_protein(pdbid, foldername="./proteins/"):
         header = [x.lower().strip() for x in header.split(",")]
 
         db['models'][model] = {}
-        for head in header[1:]:
-            atoms, coordinates = get_coordinates_xyz(foldername + "/" + model + "_"+head+".xyz")
+
+        # TODO Energies?
+        data = []
+        for line in csvfile:
+            line = line.strip()
+            line = line.split(",")
+            eps = line[0]
+            data.append(line[-len(header[1:]):])
+
+        data = np.array(data, dtype=float)
+
+        for i, head in enumerate(header[1:]):
+
+            filename = foldername + "/" + model + "_"+head+".xyz"
+
+            energies = data[:,i]
+
+            try:
+                atoms, coordinates = get_coordinates_xyz(filename)
+            except IOError:
+                filename = filename.replace("c1", "")
+                filename = filename.replace("c2", "")
+                atoms, coordinates = get_coordinates_xyz(filename)
+
             db['models'][model][head] = {}
             db['models'][model][head]['atoms'] = atoms
             db['models'][model][head]['xyz'] = coordinates
+            db['models'][model][head]['energies'] = energies
 
 
     return db
@@ -162,9 +191,14 @@ def main():
     enzymes = get_all_pdbs('proteins')
 
     for enzyme in enzymes:
+
+        print enzyme
+
         edb = get_protein(enzyme)
 
         # TODO Generate energy diagram
+
+        quit()
 
 
     return
